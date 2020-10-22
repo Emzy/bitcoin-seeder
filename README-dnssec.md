@@ -147,9 +147,9 @@ make
 
 * Download the file 
 
-[/etc/cron.daily/dnsupdate](contrib/dnsupdate)
+[/etc/cron.hourly/dnsupdate](contrib/dnsupdate)
 
-* Put it in /etc/cron.daily/
+* Put it in /etc/cron.hourly/
 
 * Change following line
 

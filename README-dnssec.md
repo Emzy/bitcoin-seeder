@@ -12,14 +12,15 @@
 
 <a name="Requirements"/>
 
-## Requirements
+## Recommendation
 * run only this service on the host (security precaution)
 
 <a name="Software"/>
 
 ## Software needed
 
-* tor (if you like to seed tor nodes)
+* Debian GNU/Linux 10
+* tor
 * bind9
 * dig (debian package bind9-dnsutils)
 * nsupdate (debian package bind9-dnsutils)
@@ -84,8 +85,10 @@ dummy                   A       127.0.0.1
 ```
 
 * Check config
-`named-checkconf`
-`named-checkzone dnsseed.example.com /var/lib/bind/db.dnsseed.example.com`
+```
+named-checkconf
+named-checkzone dnsseed.example.com /var/lib/bind/db.dnsseed.example.com
+```
 
 * Restart Bind9
 `service bind9 restart`
@@ -101,7 +104,7 @@ chown bind: Kdnsseed.example.com*.key
 * Add keys to zone file
 ```
 cd /var/lib/bind
-for key in `ls Kdnsseed.example.com*.key`
+for key in Kdnsseed.example.com*.key
 do
 echo "\$INCLUDE $key">> db.example.com
 done
@@ -285,7 +288,7 @@ dnsseed.example.com. IN DNSKEY 256 3 13 6CNJQx...xykHv XKx...xg==
 
 <a name="Improvements"/>
 
-## Posible improvements
+## Possible improvements
 * enable key only authentication on ssh
 * use different SSH port (don't forget to add to ufw)
 * non root cron job and key for the nsupdate authentication

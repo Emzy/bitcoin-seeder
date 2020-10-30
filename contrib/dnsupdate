@@ -3,6 +3,8 @@
 # puts the result in the dns zone of a Bind9.
 # bitcoin-seeder: https://github.com/sipa/bitcoin-seeder
 
+set -euo pipefail
+
 # Zone to request from bintcoin-seeder
 ZONE=dnsseed.example.com
 # Filters to fetch
